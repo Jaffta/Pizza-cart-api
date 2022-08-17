@@ -1,0 +1,62 @@
+.primCont{
+    background-color: #15616d;
+}
+
+.header{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: #ffd166;
+    padding-top: 1em;
+    text-shadow: 3px 3px #f0f3bd;
+    text-decoration: underline;
+}
+
+.customer, .numP, .tot{
+    color: #edddd4;
+    padding: 1em;
+}
+
+.details{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5em;
+    font-size: 18px;
+}
+
+.pic{
+    height: 3.5em;
+}
+
+.add/remove{
+    width: 3em;
+}
+
+table, th, td {
+    margin-left: auto;
+    margin-right: auto;
+    column-width: 10em;
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: #000000;
+    border-radius: 20em;
+    text-align: center;
+    height: 3em;
+    color: #e5e5e5;
+    font-size: 19px;
+}
+.payBtn{
+    background-color: #e5e5e5;
+    border: none;
+    padding: 0.5em;
+    width: 4em;
+}
+
+.details{
+    display: flex; 
+}
+
+.listPizzas{
+    padding-bottom: 3em;
+}
