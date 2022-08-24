@@ -32,13 +32,16 @@ document.addEventListener('alpine:init', () => {
             
            
             message: '',
-            username: 'JAY JAY',
+            username: '',
             pizzas: [],
             cartId: '',
             cart: { total: 0 },
             payNow: false,
             paymentAmount: 0,
             paymentMessage: '',
+            checkout: false,
+            featuredItems: '',
+            display: true,
 
             add(pizza) {
                
@@ -49,7 +52,7 @@ document.addEventListener('alpine:init', () => {
                 axios
                     .post('https://pizza-cart-api.herokuapp.com/api/pizza-cart/add', params)
                     .then(() => {
-                        this.message = alert("Pizza added to the cart!")
+                        //this.message = alert("Pizza added to the cart!")
                         this.showCart();
                     })
                     .catch(err => alert(err));
@@ -65,7 +68,7 @@ document.addEventListener('alpine:init', () => {
                 axios
                   .post('https://pizza-cart-api.herokuapp.com/api/pizza-cart/remove', params)
                   .then(()=>{
-                    this.message= alert("Pizza removed from the cart")
+                    //this.message= alert("Pizza removed from the cart")
                     this.showCart();
                   })
                   .catch(err=>alert(err));
@@ -80,18 +83,24 @@ document.addEventListener('alpine:init', () => {
                   .then(()=>{
                       if(!this.paymentAmount){
                           this.paymentMessage = 'No amount entered!'
+                          setTimeout(() => {
+                            this.payNow = ''
+                        }, 3000);
                       }
                       else if(this.paymentAmount >= this.cart.total.toFixed(2)){
                           this.paymentMessage = 'Payment Sucessful!'
                           this.message= this.username  + " Paid!"
                           setTimeout(() => {
                               this.cart.total = ''
+                              this.payNow = ''
+                              this.cart = ''
                           }, 3000);
                       }else{
                           this.paymentMessage = 'Insufficient fund sorry!!!'
                           setTimeout(() => {
                               this.cart.total = ''
-                          }, 5000);
+                              this.payNow = ''
+                          }, 3000);
                       }
                   })
                   .catch(err=>alert(err));
